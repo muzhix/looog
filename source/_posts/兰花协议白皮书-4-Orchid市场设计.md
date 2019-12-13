@@ -10,9 +10,9 @@ categories:
 
 > [牧之](https://github.com/muzhix)翻译[https://github.com/muzhix](https://github.com/muzhix)
 >
-> 转载请注明出处[https://github.com/muzhix/Orchid-whitepaper-chinese](https://github.com/muzhix/Orchid-whitepaper-chinese)
+> 转载请注明出处[https://hanbd.me/tags/Orchid/](https://hanbd.me/tags/Orchid/)
 >
-> [英文原版下载](https://www.orchid.com/assets/whitepaper/whitepaper.pdf)
+> [英文原版白皮书 PDF下载](https://www.orchid.com/assets/whitepaper/whitepaper.pdf)
 
 ## 4.Orchid市场设计
 
