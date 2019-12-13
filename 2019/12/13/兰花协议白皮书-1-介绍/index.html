@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="牧之翻译https:&#x2F;&#x2F;github.com&#x2F;muzhix 转载请注明出处https:&#x2F;&#x2F;hanbd.me&#x2F;tags&#x2F;Orchid&#x2F; 英文原版白皮书 PDF下载  摘要Orchid（兰花）：一个分散的市场匿名通信和虚拟专用网络。现有的隐私解决方案要么是不透明的商业服务，伴随着集中化风险，要么是免费的对等网络，缺乏对服务质量和经济安全的适当激励。Orchid是一个带宽市场，在这个市场中，节点提供商">
+<meta property="og:type" content="article">
+<meta property="og:title" content="兰花协议白皮书(1): 摘要">
+<meta property="og:url" content="http:&#x2F;&#x2F;hanbd.me&#x2F;2019&#x2F;12&#x2F;13&#x2F;%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D&#x2F;index.html">
+<meta property="og:site_name" content="牧之博客">
+<meta property="og:description" content="牧之翻译https:&#x2F;&#x2F;github.com&#x2F;muzhix 转载请注明出处https:&#x2F;&#x2F;hanbd.me&#x2F;tags&#x2F;Orchid&#x2F; 英文原版白皮书 PDF下载  摘要Orchid（兰花）：一个分散的市场匿名通信和虚拟专用网络。现有的隐私解决方案要么是不透明的商业服务，伴随着集中化风险，要么是免费的对等网络，缺乏对服务质量和经济安全的适当激励。Orchid是一个带宽市场，在这个市场中，节点提供商">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-12-13T07:45:14.000Z">
+<meta property="article:modified_time" content="2019-12-13T08:15:22.027Z">
+<meta property="article:author" content="muzhix">
+<meta property="article:tag" content="Orchid">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>兰花协议白皮书(1): 摘要</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://github.com/muzhix" target="_blank" rel="noopener">Github</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&text=兰花协议白皮书(1): 摘要" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&title=兰花协议白皮书(1): 摘要" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&is_video=false&description=兰花协议白皮书(1): 摘要" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=兰花协议白皮书(1): 摘要&body=Check out this article: http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&title=兰花协议白皮书(1): 摘要" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&title=兰花协议白皮书(1): 摘要" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&title=兰花协议白皮书(1): 摘要" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&title=兰花协议白皮书(1): 摘要" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&name=兰花协议白皮书(1): 摘要&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&t=兰花协议白皮书(1): 摘要" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#摘要"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-介绍"><span class="toc-number">2.</span> <span class="toc-text">1.介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#流量分析（Traffic-Analysis）"><span class="toc-number">2.1.</span> <span class="toc-text">流量分析（Traffic Analysis）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#女巫攻击（Sybil-Attack）"><span class="toc-number">2.2.</span> <span class="toc-text">女巫攻击（Sybil Attack）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#随机选择（Random-Selection）"><span class="toc-number">2.3.</span> <span class="toc-text">随机选择（Random Selection）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#综述"><span class="toc-number">2.4.</span> <span class="toc-text">综述</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        兰花协议白皮书(1): 摘要
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">牧之博客</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-12-13T07:45:14.000Z" itemprop="datePublished">2019-12-13</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE/">兰花协议</a> › <a class="category-link" href="/categories/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE/%E7%99%BD%E7%9A%AE%E4%B9%A6/">白皮书</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Orchid/" rel="tag">Orchid</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p><a href="https://github.com/muzhix" target="_blank" rel="noopener">牧之</a>翻译<a href="https://github.com/muzhix" target="_blank" rel="noopener">https://github.com/muzhix</a></p>
+<p>转载请注明出处<a href="https://hanbd.me/tags/Orchid/">https://hanbd.me/tags/Orchid/</a></p>
+<p><a href="https://www.orchid.com/assets/whitepaper/whitepaper.pdf" target="_blank" rel="noopener">英文原版白皮书 PDF下载</a></p>
+</blockquote>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>Orchid（兰花）：一个分散的市场匿名通信和虚拟专用网络。现有的隐私解决方案要么是不透明的商业服务，伴随着集中化风险，要么是免费的对等网络，缺乏对服务质量和经济安全的适当激励。Orchid是一个带宽市场，在这个市场中，节点提供商通过质押以太坊上的令牌<code>OXT</code>来提供服务。客户通过随机选择节点（节点的权重基于服务节点质押的<code>OXT</code>数量，用户可以基于价格、所在地等进行二次筛选）来构建单个或多个单跳洋葱路由线路。token质押使激励机制与经营者的渎职行为相一致，线性加权尤其能中和女巫攻击（<a href="https://baike.baidu.com/item/Sybil%20Attack/7567996?fr=aladdin" target="_blank" rel="noopener">Sybil Attack</a>）。Orchid使用了一种概率性的支付系统，它可以扩展到每秒数百万次的交易，这样就可以在没有可信的中心服务的情况下实现高流动性的带宽市场。分组规模的支付通过将交易者之间的隐式浮动平衡降低到极低的水平，从而允许高频的非信任交互。</p>
+<h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h2><p>互联网曾经是一个自由开放的前沿阵地，如今却日益支离破碎、受到监视和审查。随着政府和企业越来越有效地监控、检查和屏蔽连接，对隐私和匿名工具(如VPN）的需求越来越强烈。虽然VPN在大多数情况中工作得足够好，但是它们在集中式的基于信任的模型中存在固有的弱点。由于政府的施压或额外收入的诱惑，用户很难保证他们的VPN提供商不会秘密地记录和共享数据。VPN重复出现的支付和定价模式产生了锁定效应，阻止用户在一个提供商受阻或速度变慢时，以低廉的价格快速切换提供商。当前的点对点系统，如<a href="https://baike.baidu.com/item/%E6%B4%8B%E8%91%B1%E8%B7%AF%E7%94%B1" target="_blank" rel="noopener">Tor</a>或<a href="https://baike.baidu.com/item/i2p" target="_blank" rel="noopener">I2P</a>，通过构造多跳路由来隐藏任何一方的路由信息。然而，这些系统是免费的，因此在性能和安全性方面都会受到影响。由于几乎没有激励并且免费带宽有限，Tor和I2P的网络的性能和质量受到不利影响。安全性同样受到影响，由于带宽有限，攻击者很容易通过低成本提供大带宽来截获流量。</p>
+<p>我们需要的是一个具有适当经济激励和纳米级支付的点对点（peer to peer）隐私网络，允许客户从来自许多不同供应商的统一全球节点池中构建单一或多跳路由。一个开放的市场体系可以确保由利润驱动的卖方提供的带宽供应能够随着用户需求的增长而弹性地伸缩。使用加密货币合约机制可以为防止恶意行为提供必要的激励。</p>
+<p>我们的设计面临几个核心挑战:<code>流量分析</code>（traffic analysis）、<code>女巫攻击</code>（<a href="https://baike.baidu.com/item/Sybil%20Attack/7567996?fr=aladdin" target="_blank" rel="noopener">Sybil Attack</a>）和<code>随机选择问题</code>（the random selection<br>problem）。在详细介绍Orchid之前，对这几种挑战进行简要描述。</p>
+<h3 id="流量分析（Traffic-Analysis）"><a href="#流量分析（Traffic-Analysis）" class="headerlink" title="流量分析（Traffic Analysis）"></a>流量分析（Traffic Analysis）</h3><p>从理论上和实践上讲，在不向收件人以外的人泄露任何信息的情况下发送消息是相当困难的。在混合网络中，消息通过大量的代理节点进行路由，每一步都随机重新排序，并像信封一样分层加密。洋葱路由协议（<a href="https://baike.baidu.com/item/洋葱路由" target="_blank" rel="noopener">Onion routing</a>，被Tor采用）使用相同的分层加密概念，并为每个持久连接结合惟一的随机代理节点路径，而不是使用单个共享电路，以获得更大的可伸缩性。<code>流量分析</code>仍然是的一个潜在问题，可以通过带宽消耗(填充)和/或随机消息延迟来解决，但是这会显著降低性能。<code>共谋</code>（Collusion）是另一个严重的问题:如果电路中的其他节点都在合作，它们就可以推断出整个电路。</p>
+<h3 id="女巫攻击（Sybil-Attack）"><a href="#女巫攻击（Sybil-Attack）" class="headerlink" title="女巫攻击（Sybil Attack）"></a>女巫攻击（<a href="https://baike.baidu.com/item/Sybil%20Attack/7567996?fr=aladdin" target="_blank" rel="noopener">Sybil Attack</a>）</h3><p>在任何开放的网络中，代理可以创建许多假身份，表现为大量的独立节点，而这些节点实际上都是相互勾结的。在保持开放性的同时防止单个攻击者击垮系统是很困难的。解决这个问题的一种方法是工作证明（Proof-of-work），起源于HashCash，后来被比特币采用，并在较早的Orchid 0.9.2中被提出用于Sybil防御。工作证明要求每个节点花费计算资源来证明它们的身份。因此，制造许多假身份将需要按比例增加成本支出。燃烧证明（Proof-of-Burn）在效果上是类似的，但只需要破坏加密货币的证据，其优点是燃烧的货币的价值被重新分配给货币利益相关者，而不是完全浪费。基于股权质押证明（Proof-of-stake）的加密货币要求用户以股权形式获得区块奖励并参与网络。Orchid使用一个股权（质押）加权系统来击败女巫攻击，并结合激励机制，提供关键的经济安全优势。</p>
+<h3 id="随机选择（Random-Selection）"><a href="#随机选择（Random-Selection）" class="headerlink" title="随机选择（Random Selection）"></a>随机选择（Random Selection）</h3><p>为了构建低合谋概率的安全线路，我们需要从中继节点中随机选择不受Sybil攻击的节点。我们用线性加权随机选择来实现这一点（即Sybil-Orthogonal ），攻击者将他们的代币分割成多份质押并不能获得优势（<em>译者注：每一个节点都需要代币质押，质押的越多，权重越高。代币分散质押到多个节点质押，则每个分散节点的权重都会降低</em>）。这种选择方案还提供了一种简单而有效的负载平衡方法，并且即使在最小的单跳电路(不太可能产生合谋)的情况下也有一些细微的额外好处。实现全局随机选择策略需要客户端（用户）具有节点元数据的全局列表。较早的Orchid 0.9.2提出了一个定制的分布式哈希表（DHT，Distributed Hash Table）来解决这个问题。为了简单起见，我们现在直接使用Ethereum区块链（以及它的底层DHT）来提供全局节点注册表。</p>
+<h3 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h3><p>Orchid是一个分布式平台，客户可以利用一个新的随机纳米级支付系统来进行支付，从而实现具有多种潜在用途的高性能洋葱路由电路。带宽提供者运行Orchid服务端软件并在以太坊合约中质押OXT（Orchid代币）代币来获得流量和收益，收益与质押代币金额正相关。客户端通过股权加权随机选择来寻找节点，我们将其实现为一个智能契约函数，使用树型数据结构。然后，客户使用每秒发送一次的概率性纳米级支付向节点付款。多跳路由可以使用一个帐户每跳或间接洋葱支付转发从而减少支付过程中的信息泄漏。电路可能因为技术或经济原因而失败(例如，当电路特定成本超过用户当前预算时)，并且在失败时简单地重新采样。我们的设计的核心机制非常简单，但是细节是很重要的。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://github.com/muzhix" target="_blank" rel="noopener">Github</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#摘要"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-介绍"><span class="toc-number">2.</span> <span class="toc-text">1.介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#流量分析（Traffic-Analysis）"><span class="toc-number">2.1.</span> <span class="toc-text">流量分析（Traffic Analysis）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#女巫攻击（Sybil-Attack）"><span class="toc-number">2.2.</span> <span class="toc-text">女巫攻击（Sybil Attack）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#随机选择（Random-Selection）"><span class="toc-number">2.3.</span> <span class="toc-text">随机选择（Random Selection）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#综述"><span class="toc-number">2.4.</span> <span class="toc-text">综述</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&text=兰花协议白皮书(1): 摘要" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&title=兰花协议白皮书(1): 摘要" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&is_video=false&description=兰花协议白皮书(1): 摘要" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=兰花协议白皮书(1): 摘要&body=Check out this article: http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&title=兰花协议白皮书(1): 摘要" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&title=兰花协议白皮书(1): 摘要" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&title=兰花协议白皮书(1): 摘要" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&title=兰花协议白皮书(1): 摘要" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&name=兰花协议白皮书(1): 摘要&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/&t=兰花协议白皮书(1): 摘要" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 muzhix
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://github.com/muzhix" target="_blank" rel="noopener">Github</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-154472484-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

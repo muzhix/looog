@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="牧之翻译https:&#x2F;&#x2F;github.com&#x2F;muzhix 转载请注明出处https:&#x2F;&#x2F;hanbd.me&#x2F;tags&#x2F;Orchid&#x2F; 英文原版白皮书 PDF下载  2.背景长期以来，隐私一直是网络中的一个问题，尤其是随着越来越多的信息转移到网上，每天都有更多的漏洞暴露出来。我们的许多基本的计算机网络协议[和实践产生于1961年到1989年之间的高度信任的学术或业余文化，并且仍然在现代电话、笔记本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="兰花协议白皮书(2): 背景">
+<meta property="og:url" content="http:&#x2F;&#x2F;hanbd.me&#x2F;2019&#x2F;12&#x2F;13&#x2F;%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF&#x2F;index.html">
+<meta property="og:site_name" content="牧之博客">
+<meta property="og:description" content="牧之翻译https:&#x2F;&#x2F;github.com&#x2F;muzhix 转载请注明出处https:&#x2F;&#x2F;hanbd.me&#x2F;tags&#x2F;Orchid&#x2F; 英文原版白皮书 PDF下载  2.背景长期以来，隐私一直是网络中的一个问题，尤其是随着越来越多的信息转移到网上，每天都有更多的漏洞暴露出来。我们的许多基本的计算机网络协议[和实践产生于1961年到1989年之间的高度信任的学术或业余文化，并且仍然在现代电话、笔记本">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-12-13T07:47:45.000Z">
+<meta property="article:modified_time" content="2019-12-13T08:15:22.027Z">
+<meta property="article:author" content="muzhix">
+<meta property="article:tag" content="Orchid">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>兰花协议白皮书(2): 背景</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://github.com/muzhix" target="_blank" rel="noopener">Github</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-3-%E7%9B%AE%E6%A0%87%E5%92%8C%E9%99%90%E5%88%B6/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-1-%E4%BB%8B%E7%BB%8D/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&text=兰花协议白皮书(2): 背景" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&title=兰花协议白皮书(2): 背景" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&is_video=false&description=兰花协议白皮书(2): 背景" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=兰花协议白皮书(2): 背景&body=Check out this article: http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&title=兰花协议白皮书(2): 背景" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&title=兰花协议白皮书(2): 背景" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&title=兰花协议白皮书(2): 背景" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&title=兰花协议白皮书(2): 背景" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&name=兰花协议白皮书(2): 背景&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&t=兰花协议白皮书(2): 背景" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-背景"><span class="toc-number">1.</span> <span class="toc-text">2.背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1消费者VPN"><span class="toc-number">1.1.</span> <span class="toc-text">2.1消费者VPN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Tor，洋葱路由"><span class="toc-number">1.2.</span> <span class="toc-text">2.2 Tor，洋葱路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-带用户激励的Tor"><span class="toc-number">1.3.</span> <span class="toc-text">2.3 带用户激励的Tor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-支付通道支持路由"><span class="toc-number">1.4.</span> <span class="toc-text">2.4 支付通道支持路由</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        兰花协议白皮书(2): 背景
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">牧之博客</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-12-13T07:47:45.000Z" itemprop="datePublished">2019-12-13</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE/">兰花协议</a> › <a class="category-link" href="/categories/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE/%E7%99%BD%E7%9A%AE%E4%B9%A6/">白皮书</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Orchid/" rel="tag">Orchid</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p><a href="https://github.com/muzhix" target="_blank" rel="noopener">牧之</a>翻译<a href="https://github.com/muzhix" target="_blank" rel="noopener">https://github.com/muzhix</a></p>
+<p>转载请注明出处<a href="https://hanbd.me/tags/Orchid/">https://hanbd.me/tags/Orchid/</a></p>
+<p><a href="https://www.orchid.com/assets/whitepaper/whitepaper.pdf" target="_blank" rel="noopener">英文原版白皮书 PDF下载</a></p>
+</blockquote>
+<h2 id="2-背景"><a href="#2-背景" class="headerlink" title="2.背景"></a>2.背景</h2><p>长期以来，隐私一直是网络中的一个问题，尤其是随着越来越多的信息转移到网上，每天都有更多的漏洞暴露出来。我们的许多基本的计算机网络协议[和实践产生于1961年到1989年之间的高度信任的学术或业余文化，并且仍然在现代电话、笔记本电脑和台式机中使用。从根本上说，他们对经济学缺乏经验，也对经济学一无所知。默认操作就像一个邮件系统，里面全是机器打印的明信片，缺乏验证，在传送过程中可能会发生无法检测到的修改或替换。互联网服务提供商（ISP）往往是公共事业公司，他们与政府合作、操纵服务伤害用户并且不断降低底线。ISP一般不倾向于完全摧毁他们的数据传输服务（某些情况下例外），学者们当然也不认为他们设计协议的最初任务是使ISP破坏自愿的双边客户/服务器关系的可能最小化。</p>
+<p>即使在非威权国家，有线电视公司、电话公司或专业公司也已开始游说有代表性的政府，将商业间谍活动合法化，并明确违反有关转发所有数据包的原始规范。自2014年以来，Facebook的受欢迎程度急剧下降(在2019年100家最受关注的组织中，Facebook排名第94位，略高于特朗普组织和美国政府本身)。用户可以简单的停止访问Facebook，并且已经在这么做了。相比之下，ISP服务于低粘度市场，6000万美国人面临着真正的宽带垄断。</p>
+<p>虽然已经尝试加强流行的协议，但是很少有(可以说是零)完全安全的“先发后弃”协议。例如，SSH相对安全，被广泛使用的，但是流量分析攻击在2003就被发现了，并且直到2019年在实际代码中对问题进行修补是相当偶然的。</p>
+<p>对大多数用户来说，通过不受信任的ISP路由器发送的未经加密的信息不是一个紧迫的问题，但许多人确实通过咖啡店、机场或酒店wifi访问网络。间谍活动、服务质量下降和价格欺诈在所有这些情况中都很常见，因为这些情况在小范围内重现了类似于ISP的激励机制。免费WIFI中可能存在错误配置，使得某些用户可以监视其他用户。在公众的印象中，所有这些挑战和更多的模糊在一起，形成了一种模糊的感觉，即整个互联网，尤其是通过wifi接入的互联网，充满了令人困惑和潜在危险的监视。</p>
+<p>在企业界，虚拟专用网(VPN)技术开始被广泛采用，最初是作为一种允许员工(尤其是出差或远程办公的员工)从其他不受信任的网络创建到内网的一条加密通道。之所以叫虚拟专用网是因为VPN软件使人们“实际”上进入了他们安全的“专用网络”。它并没有完全解决协议加固的问题(流量的大小和时间往往不受保护)，但是通过这样的隧道发送经过加固和未加固的协议至少可以防止注入攻击和某些类型的推理攻击。</p>
+<p>企业环境中VPN服务的兴起，基本上使相同的技术被重新利用(使用类似的隧道概念)，并提供给消费者市场。在这个新的生态系统中，没有雇主来履行本地可信权威的角色，从而导致技术人员、企业家和研究人员进行各种尝试，以探索各种解决方案，以获得更可靠的安全网络。消费者vpn在这一系列可能的解决方案中占据了一个小众市场，Tor占据了另一个，对Tor的改进尝试通常会因为奖励和支付(或缺少奖励和支付)所带来的挑战而失败。</p>
+<h3 id="2-1消费者VPN"><a href="#2-1消费者VPN" class="headerlink" title="2.1消费者VPN"></a>2.1消费者VPN</h3><h3 id="2-2-Tor，洋葱路由"><a href="#2-2-Tor，洋葱路由" class="headerlink" title="2.2 Tor，洋葱路由"></a>2.2 Tor，洋葱路由</h3><h3 id="2-3-带用户激励的Tor"><a href="#2-3-带用户激励的Tor" class="headerlink" title="2.3 带用户激励的Tor"></a>2.3 带用户激励的Tor</h3><h3 id="2-4-支付通道支持路由"><a href="#2-4-支付通道支持路由" class="headerlink" title="2.4 支付通道支持路由"></a>2.4 支付通道支持路由</h3>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://github.com/muzhix" target="_blank" rel="noopener">Github</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-背景"><span class="toc-number">1.</span> <span class="toc-text">2.背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1消费者VPN"><span class="toc-number">1.1.</span> <span class="toc-text">2.1消费者VPN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Tor，洋葱路由"><span class="toc-number">1.2.</span> <span class="toc-text">2.2 Tor，洋葱路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-带用户激励的Tor"><span class="toc-number">1.3.</span> <span class="toc-text">2.3 带用户激励的Tor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-支付通道支持路由"><span class="toc-number">1.4.</span> <span class="toc-text">2.4 支付通道支持路由</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&text=兰花协议白皮书(2): 背景" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&title=兰花协议白皮书(2): 背景" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&is_video=false&description=兰花协议白皮书(2): 背景" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=兰花协议白皮书(2): 背景&body=Check out this article: http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&title=兰花协议白皮书(2): 背景" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&title=兰花协议白皮书(2): 背景" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&title=兰花协议白皮书(2): 背景" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&title=兰花协议白皮书(2): 背景" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&name=兰花协议白皮书(2): 背景&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://hanbd.me/2019/12/13/%E5%85%B0%E8%8A%B1%E5%8D%8F%E8%AE%AE%E7%99%BD%E7%9A%AE%E4%B9%A6-2-%E8%83%8C%E6%99%AF/&t=兰花协议白皮书(2): 背景" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 muzhix
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="http://github.com/muzhix" target="_blank" rel="noopener">Github</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-154472484-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
